@@ -1,4 +1,6 @@
-﻿namespace OnlineShop;
+﻿using OnlineShop.Services;
+
+namespace OnlineShop.Menus;
 
 class MenuForCoupons
 {

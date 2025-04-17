@@ -1,8 +1,39 @@
-﻿namespace OnlineShop;
+﻿using OnlineShop.Domain;
+
+namespace OnlineShop.Services;
 
 class ProductService
 {
     public List<Product> Products { get; set; }
+
+    public ProductService()
+    {
+        Products = new List<Product>();
+
+        var appleWatch = new Product("Watch", 100.50, "Apple");
+        Products.Add(appleWatch);
+
+        var appleIPhone = new Product("IPhone", 2000, "Apple");
+        Products.Add(appleIPhone);
+    }
+
+    public Product GetProduct() 
+    {
+        var productText = Console.ReadLine();
+        var productNumber = 0;
+        if (int.TryParse(productText, out productNumber))
+        {
+            if (productNumber > 0 &&
+                Products.Count >= productNumber)
+            {
+                var product = Products.ElementAt(productNumber - 1);
+
+                return product;
+            }
+        }
+
+        return null;
+    }
 
     public void AddProduct()
     {
@@ -102,10 +133,7 @@ class ProductService
         {
             var product = Products.ElementAt(i);
 
-            Console.WriteLine($"{i+1}. {product.ProductName}");
+            Console.WriteLine($"{i+1}. {product.ProductName}. {product.Price:C2}");
         }
     }
 }
-
-
-

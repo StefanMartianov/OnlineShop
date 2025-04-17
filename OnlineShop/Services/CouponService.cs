@@ -1,8 +1,36 @@
-﻿namespace OnlineShop;
+﻿using OnlineShop.Domain;
+
+namespace OnlineShop.Services;
 
 class CouponService
 {
     public List<Coupon> Coupons { get; set; }
+
+    public CouponService()
+    {
+        Coupons = new List<Coupon>();
+
+        var testCoupon = new Coupon("Sales", 100);
+        Coupons.Add(testCoupon);
+    }
+
+    public Coupon GetCoupon() 
+    {
+        var coupontText = Console.ReadLine();
+        var couponNumber = 0;
+        if (int.TryParse(coupontText, out couponNumber))
+        {
+            if (couponNumber > 0 &&
+                Coupons.Count >= couponNumber)
+            {
+                var coupon = Coupons.ElementAt(couponNumber - 1);
+
+                return coupon;
+            }
+        }
+
+        return null;
+    }
 
     public void AddCoupons()
     {
@@ -40,9 +68,9 @@ class CouponService
 
                 coupon.CouponsName = name;
                 coupon.CouponsPrice = price;
+
                 Console.WriteLine($"Your edited coupon is {name}, and the edited price is {price}");
             }
-            
         }
     }
 

@@ -1,4 +1,6 @@
-﻿namespace OnlineShop;
+﻿using OnlineShop.Services;
+
+namespace OnlineShop.Menus;
 
 class MenuForHistories
 {
@@ -6,15 +8,15 @@ class MenuForHistories
     {
         while (true)
         {
-            var input = Console.ReadLine();
-
             Console.Clear();
             Console.WriteLine("Enter 1 to see - Your Orders-history: ");
             Console.WriteLine("Enter 2 to exit: ");
 
+            var input = Console.ReadLine();
+
             if (input == "1")
             {
-                Console.WriteLine("Your Orders-history: ");
+                historyService.ShowHistory(historyService);
             }
             else if (input == "2")
             {

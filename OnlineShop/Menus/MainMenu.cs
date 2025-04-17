@@ -1,10 +1,12 @@
-﻿namespace OnlineShop;
+﻿using OnlineShop.Services;
+
+namespace OnlineShop.Menus;
 
 class MainMenu
 {
     public static void ShowMainMenu(
         UserService userService,
-        ProductService productService, 
+        ProductService productService,
         CouponService couponService,
         OrderService orderService,
         HistoryService historyService)
@@ -35,13 +37,17 @@ class MainMenu
             }
             else if (input == "4")
             {
-                MenuForOrders.ShowOrderMenu(orderService);
+                MenuForOrders.ShowOrderMenu(
+                    orderService, 
+                    productService,
+                    couponService,
+                    historyService);
             }
             else if (input == "5")
             {
                 userService.ShowChangesUsersData();
             }
-            else if(input == "6")
+            else if (input == "6")
             {
                 break;
             }

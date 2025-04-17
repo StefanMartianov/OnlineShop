@@ -1,4 +1,4 @@
-﻿namespace OnlineShop;
+﻿namespace OnlineShop.Domain;
 
 class Coupon
 {
@@ -11,10 +11,5 @@ class Coupon
     {
         CouponsName = couponsName;
         CouponsPrice = couponsPrice;
-    }
-
-    public string CouponInfo()
-    {
-        return $"Your choose coupon is {CouponsName}, the price with your coupon is {CouponsPrice} : ";
     }
 }

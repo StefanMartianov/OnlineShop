@@ -1,15 +1,17 @@
-﻿using OnlineShop;
+﻿using OnlineShop.Domain;
+using OnlineShop.Menus;
+using OnlineShop.Services;
 
 var userService = new UserService();
-userService.Users = new List<User>();
+
 var productService = new ProductService();
-productService.Products = new List<Product>();
+
 var couponService = new CouponService();
-couponService.Coupons = new List<Coupon>();
+
 var historyService = new HistoryService();
-historyService.Histories = new List<History>();
+
 var orderService = new OrderService();
-orderService.Orders = new List<Order>();
+
 
 while (true)
 {

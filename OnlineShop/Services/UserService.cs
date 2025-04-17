@@ -1,11 +1,20 @@
-﻿
-namespace OnlineShop;
+﻿using OnlineShop.Domain;
+
+namespace OnlineShop.Services;
 
 class UserService
 {
     public List<User> Users { get; set; }
 
     public User CurrentUser { get; set; }
+
+    public UserService()
+    {
+        Users = new List<User>();
+
+        var testUser = new User("1", "1");
+        Users.Add(testUser);
+    }
 
     public bool LoginIn()
     {
