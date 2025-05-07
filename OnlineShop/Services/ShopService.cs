@@ -4,11 +4,11 @@ namespace OnlineShop.Services;
 
 class ShopService
 {
-    public CouponService CouponService { get; set; }
-    public ProductService ProductService { get; set; }
-    public UserService UserService { get; set; }
-    public HistoryService HistoryService { get; set; }
-    public OrderService OrderService { get; set; }
+    private CouponService CouponService { get; init; }
+    private ProductService ProductService { get; init; }
+    private UserService UserService { get; init; }
+    private HistoryService HistoryService { get; init; }
+    private OrderService OrderService { get; init; }
 
     public ShopService()
     {
@@ -16,12 +16,11 @@ class ShopService
         ProductService = new ProductService();
         UserService = new UserService();
         HistoryService = new HistoryService();
-        OrderService = new OrderService();
+        OrderService = new OrderService(UserService);
     }
 
     public void ShowStartMenu()
     {
-
         while (true)
         {
             Console.Clear();

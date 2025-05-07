@@ -4,7 +4,7 @@ namespace OnlineShop.Services;
 
 class ProductService
 {
-    public List<Product> Products { get; set; }
+    private List<Product> Products { get; init; }
 
     public ProductService()
     {

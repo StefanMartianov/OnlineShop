@@ -41,7 +41,8 @@ class MainMenu
                     orderService, 
                     productService,
                     couponService,
-                    historyService);
+                    historyService,
+                    userService);
             }
             else if (input == "5")
             {

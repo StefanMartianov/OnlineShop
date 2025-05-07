@@ -3,11 +3,11 @@ namespace OnlineShop.Services;
 
 class OrderService
 {
-    public Order Order { get; set; }
+    private Order Order { get; set; }
 
-    public OrderService()
+    public OrderService(UserService userService)
     {
-        Order = new Order();
+        Order = new Order(userService.CurrentUser);
     }
 
     public void ChooseProduct(ProductService productService)
@@ -119,7 +119,7 @@ class OrderService
         }
     }
 
-    public void PayOrder(HistoryService historyService)
+    public void PayOrder(HistoryService historyService, User user)
     {
         ShowProductsFromOrder();
         ShowCouponsFromOrder();
@@ -148,7 +148,7 @@ class OrderService
 
         historyService.AddOrderHistory(Order);
 
-        Order = new Order();
+        Order = new Order(user);
 
         Console.WriteLine($"Your order was payted.The price is {orderSum}");
     }

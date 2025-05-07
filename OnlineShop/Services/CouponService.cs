@@ -4,7 +4,7 @@ namespace OnlineShop.Services;
 
 class CouponService
 {
-    public List<Coupon> Coupons { get; set; }
+    private List<Coupon> Coupons { get; init; }
 
     public CouponService()
     {

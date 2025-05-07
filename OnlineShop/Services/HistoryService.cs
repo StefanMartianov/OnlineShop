@@ -3,7 +3,7 @@ namespace OnlineShop.Services;
 
 class HistoryService
 {
-    public List<Order> Histories { get; set; }
+    private List<Order> Histories { get; init; }
 
     public HistoryService()
     {

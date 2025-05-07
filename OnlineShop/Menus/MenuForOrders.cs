@@ -8,7 +8,8 @@ class MenuForOrders
         OrderService orderService,
         ProductService productService,
         CouponService couponService,
-        HistoryService historyService)
+        HistoryService historyService,
+        UserService userService)
     {
         while (true)
         {
@@ -38,7 +39,7 @@ class MenuForOrders
             }
             else if (input == "4")
             {
-                orderService.PayOrder(historyService);
+                orderService.PayOrder(historyService,userService.CurrentUser);
                 Console.WriteLine("press any key to continue..");
                 Console.ReadKey();
             }
